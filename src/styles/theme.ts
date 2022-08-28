@@ -38,4 +38,9 @@ export const theme = extendTheme({
     heading: "Manrope",
     body: "Manrope",
   },
+  styles: {
+    global: {
+      bg: "gray.700",
+    },
+  },
 });

@@ -1,7 +1,7 @@
 import { Input, useColorMode } from "@chakra-ui/react";
 
 interface InputModalProps {
-  value: string | number;
+  value: string;
   place: string;
   type: string;
   changeFunction: (e: any) => void;
@@ -25,7 +25,7 @@ export function InputModal({
       border={colorMode === "light" ? "1px solid #d7d7d7" : "none"}
       borderColor={colorMode === "light" ? "#d7d7d7" : "none"}
       _placeholder={{
-        color: colorMode === "light" ? "#969CB2" : "white.700",
+        color: colorMode === "light" ? "#969CB2" : "white.500",
       }}
       onChange={(e) => changeFunction(e.target.value)}
     />

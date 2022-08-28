@@ -19,7 +19,7 @@ export function Header() {
         mx="auto"
         justify="space-between"
         pt="2.5rem"
-        px="1rem"
+        px={["1rem", 0]}
       >
         <Box
           display="flex"

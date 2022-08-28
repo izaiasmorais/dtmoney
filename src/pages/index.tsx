@@ -7,6 +7,7 @@ import { useModal } from "../contexts/ModalContext";
 import { useEffect } from "react";
 
 import styles from "../styles/home.module.css";
+import { Footer } from "../components/Footer";
 
 const Home: NextPage = () => {
   const { transactions, setTransactions } = useModal();
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
     <Flex
       as="div"
       direction="column"
-      h="100vh"
+      h={["100%", "100%", "100vh"]}
       w="100%"
       className={colorMode === "light" ? styles.lightMode : styles.darkMode}
     >
@@ -42,6 +43,7 @@ const Home: NextPage = () => {
           />
         ))}
       </Flex>
+      <Footer />
     </Flex>
   );
 };

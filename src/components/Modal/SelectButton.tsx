@@ -26,7 +26,7 @@ export function SelectButton({
       onClick={clickFunction}
       _hover={{ bg: "normal" }}
       _active={{ bg: "normal" }}
-      color={colorMode === "light" ? "gray.700" : "white.100"}
+      color={colorMode === "light" ? "gray.700" : "white.500"}
       borderColor={colorMode === "light" ? "#D7D7D7" : "none"}
       bg={colorMode === "light" ? "transparent" : "gray.100"}
     >

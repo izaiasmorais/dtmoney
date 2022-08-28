@@ -25,26 +25,16 @@ export function Summary() {
     }
   );
 
-  const entradas = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(summary.deposits);
-
-  const saídas = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(summary.withdraws);
-
-  const total = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(summary.total);
-
   return (
     <Flex pl="1rem" pr={["0", "1rem", "1rem"]}>
       <Flex
         overflowX="auto"
         maxWidth="1120px"
+        css={{
+          "::-webkit-scrollbar": {
+            diplay: "none",
+          },
+        }}
         w="100%"
         mt="-4.5rem"
         mx="auto"
@@ -56,19 +46,28 @@ export function Summary() {
           url="/Income.png"
           bg={colorMode == "light" ? "white.100" : "gray.300"}
           title="Entradas"
-          value={entradas}
+          value={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.deposits)}
         />
         <SummaryBox
           url="/Outcome.png"
           bg={colorMode == "light" ? "white.100" : "gray.300"}
           title="Saídas"
-          value={saídas}
+          value={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.withdraws)}
         />
         <SummaryBox
           url="/Total.png"
           bg={colorMode == "light" ? "green.500" : "purple.500"}
           title="Total"
-          value={total}
+          value={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(summary.total)}
           color="white.100"
         />
       </Flex>

@@ -1,16 +1,13 @@
 import {
   Button,
   Flex,
-  Image,
   Input,
   Modal,
   ModalBody,
   ModalContent,
   ModalOverlay,
-  Text,
   useColorMode,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { useModal } from "../../contexts/ModalContext";
 import { InputModal } from "./InputModal";
 import { SelectButton } from "./SelectButton";
@@ -52,11 +49,19 @@ export function TransactionModal() {
               changeFunction={setTitle}
             />
 
-            <InputModal
+            <Input
               type="number"
-              place="price"
+              placeholder="preço"
+              py="1.75rem"
               value={price}
-              changeFunction={setPrice}
+              color={colorMode === "light" ? "gray.700" : "white.100"}
+              bg={colorMode === "light" ? "white.400" : "gray.700"}
+              border={colorMode === "light" ? "1px solid #d7d7d7" : "none"}
+              borderColor={colorMode === "light" ? "#d7d7d7" : "none"}
+              _placeholder={{
+                color: colorMode === "light" ? "#969CB2" : "white.500",
+              }}
+              onChange={(e) => setPrice(Number(e.target.value))}
             />
             <InputModal
               type="text"
