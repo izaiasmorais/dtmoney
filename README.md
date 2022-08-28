@@ -8,6 +8,11 @@
 
 O site é inicialmente feito na trilha ReactJS da Rocketseat. Criei ele para uso próprio, mas é livre para qualquer um utilizar. A interface é construída em Next.js ChakraUI. O site é totalmente responsivo e tem o dark mode incluso.
 
+<div display="flex" align="center">
+   <img src="https://i.imgur.com/HXqFBjK.png" />
+   <img src="https://i.imgur.com/IS4WCMs.png" />
+</div>
+
 ### Funcionalidades
 
 - Adição de transações.
