@@ -2,7 +2,7 @@
    💵 EZMoney
 </h1>
 
-<p align="center">Um site para gerenciar suas finanças.</p>
+<p align="center">Uma aplicação para gerenciar suas finanças.</p>
 
 ## 📃 Sobre o projeto
 
