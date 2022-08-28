@@ -1,10 +1,12 @@
-import { Flex, Text, Link } from "@chakra-ui/react";
+import { Flex, Text, Link, useColorMode } from "@chakra-ui/react";
 import { AiFillInstagram, AiFillGithub } from "react-icons/ai";
 import { BsDiscord } from "react-icons/bs";
 
 export function Footer() {
+  const { colorMode } = useColorMode();
+
   return (
-    <Flex h="100%" w="100%" mt="4rem" bg="gray.700">
+    <Flex w="100%" bg={colorMode === "light" ? "white.300" : "gray.700"}>
       <Flex
         w="100%"
         maxWidth="1120px"
@@ -18,7 +20,7 @@ export function Footer() {
           2022 © EZMoney • Todos os direitos reservados
         </Text>
         <Flex gap="1rem" align="center">
-          <Link href="https://github.com/IzaiasMorais">
+          <Link href="https://github.com/izaiasmorais">
             <AiFillGithub size={28} />
           </Link>
           <Link href="https://www.instagram.com/_izaias_morais/">

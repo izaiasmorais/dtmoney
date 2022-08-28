@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Flex, useColorMode } from "@chakra-ui/react";
+import { Flex, Grid, useColorMode } from "@chakra-ui/react";
 import { Header } from "../components/Header";
 import { Summary } from "../components/Summary";
 import { Transaction } from "../components/Transaction";
@@ -25,13 +25,14 @@ const Home: NextPage = () => {
     <Flex
       as="div"
       direction="column"
-      h={["100%", "100%", "100vh"]}
+      position="relative"
       w="100%"
+      h="100vh"
       className={colorMode === "light" ? styles.lightMode : styles.darkMode}
     >
       <Header />
       <Summary />
-      <Flex direction="column" p="1rem">
+      <Flex direction="column" p="1rem" h="100%">
         {transactions.map((transaction, index) => (
           <Transaction
             key={index}

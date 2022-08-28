@@ -40,7 +40,7 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
-      bg: "gray.700",
+      background: "gray.700",
     },
   },
 });

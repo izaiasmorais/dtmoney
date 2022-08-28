@@ -74,11 +74,13 @@ export function TransactionModal() {
               <SelectButton
                 src="/Income.png"
                 bg="#12a45429"
+                name="Entrada"
                 clickFunction={() => setType("deposit")}
                 option={"deposit"}
               />
               <SelectButton
                 src="/Outcome.png"
+                name="Saída"
                 bg="#e62e4d28"
                 clickFunction={() => setType("withdraw")}
                 option={"withdraw"}

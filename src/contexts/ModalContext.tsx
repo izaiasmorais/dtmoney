@@ -74,7 +74,6 @@ export function ModalContextProvider({ children }: ModalContextProviderProps) {
       setTitle("");
       setCategory("");
       setPrice(0);
-      setType("");
 
       setTransactions(newTransactions);
 
