@@ -1,8 +1,9 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, useColorMode } from "@chakra-ui/react";
 import { useModal } from "../../contexts/ModalContext";
 import { SummaryBox } from "./SummaryBox";
 
 export function Summary() {
+  const { colorMode } = useColorMode();
   const { transactions } = useModal();
 
   const summary = transactions.reduce(
@@ -49,22 +50,23 @@ export function Summary() {
         mx="auto"
         gap={["1rem", "1rem", "2rem"]}
         mb={["2rem", "4rem"]}
+        color={colorMode == "light" ? "normal" : "white.100"}
       >
         <SummaryBox
           url="/Income.png"
-          bg="white.100"
+          bg={colorMode == "light" ? "white.100" : "gray.300"}
           title="Entradas"
           value={entradas}
         />
         <SummaryBox
           url="/Outcome.png"
-          bg="white.100"
+          bg={colorMode == "light" ? "white.100" : "gray.300"}
           title="Saídas"
           value={saídas}
         />
         <SummaryBox
           url="/Total.png"
-          bg="green.500"
+          bg={colorMode == "light" ? "green.500" : "purple.500"}
           title="Total"
           value={total}
           color="white.100"

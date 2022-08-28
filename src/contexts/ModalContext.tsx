@@ -49,26 +49,40 @@ export function ModalContextProvider({ children }: ModalContextProviderProps) {
   const create_at = new Intl.DateTimeFormat("pt-BR", {}).format(new Date());
 
   function crateTransaction() {
-    const newTransaction = {
-      title,
-      price,
-      category,
-      type,
-      create_at,
-    };
+    if (title === "" || category === "" || price === 0 || type === "") {
+      toast("Preencha todos os dados!", {
+        icon: "⚠️",
+      });
 
-    const newTransactions = produce(transactions, (draft) => {
-      draft.push(newTransaction);
-    });
+      return;
+    } else {
+      const newTransaction = {
+        title,
+        price,
+        category,
+        type,
+        create_at,
+      };
 
-    toast.success("Transação adicionada!");
+      const newTransactions = produce(transactions, (draft) => {
+        draft.push(newTransaction);
+      });
 
-    setTransactions(newTransactions);
+      toast.success("Transação adicionada!");
 
-    localStorage.setItem(
-      "client_transactions",
-      JSON.stringify(newTransactions)
-    );
+      onClose();
+      setTitle("");
+      setCategory("");
+      setPrice(0);
+      setType("");
+
+      setTransactions(newTransactions);
+
+      localStorage.setItem(
+        "client_transactions",
+        JSON.stringify(newTransactions)
+      );
+    }
   }
 
   return (

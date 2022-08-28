@@ -4,6 +4,7 @@ const colors = {
   white: {
     "100": "#ffffff",
     "300": "#f0f2f5",
+    "400": "#E7E9EE",
     "500": "#c4c4cc",
     "700": "#7c7c8a",
   },
@@ -31,19 +32,10 @@ const colors = {
 };
 
 export const theme = extendTheme({
-  initialColorMode: "dark",
-  useSystemColorMode: false,
+  useSystemColorMode: true,
   colors,
   fonts: {
     heading: "Manrope",
     body: "Manrope",
-  },
-  styles: {
-    global: {
-      body: {
-        bg: "white.300",
-        color: "gray.700",
-      },
-    },
   },
 });

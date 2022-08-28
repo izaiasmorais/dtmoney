@@ -8,9 +8,13 @@ import {
   ModalContent,
   ModalOverlay,
   Text,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useModal } from "../../contexts/ModalContext";
+import { InputModal } from "./InputModal";
+import { SelectButton } from "./SelectButton";
+import { TitleModal } from "./TitleModal";
 
 export function TransactionModal() {
   const {
@@ -23,79 +27,59 @@ export function TransactionModal() {
     setTitle,
     setPrice,
     setType,
-    type,
     crateTransaction,
   } = useModal();
-
-  function handleAddTransaction() {
-    crateTransaction();
-    onClose();
-  }
+  const { colorMode } = useColorMode();
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent mt="150px" px="1rem" pb="2rem" w="500px">
+      <ModalContent
+        mt="150px"
+        px="1rem"
+        pb="2rem"
+        bg={[colorMode === "light" ? "white.300" : "gray.300"]}
+        color="white.300"
+      >
         <ModalBody>
           <Flex direction="column" gap="1rem">
-            <Text
-              fontSize="1.5rem"
-              fontWeight="600"
-              mt="1rem"
-              color="blackAlpha.900"
-            >
-              Nova transação
-            </Text>
-            <Input
+            <TitleModal />
+
+            <InputModal
               type="text"
-              placeholder="descrição"
-              py="1.75rem"
+              place="descrição"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              changeFunction={setTitle}
             />
-            <Input
+
+            <InputModal
               type="number"
-              placeholder="preço"
-              py="1.75rem"
+              place="price"
               value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
+              changeFunction={setPrice}
             />
-            <Input
-              placeholder="categoria"
-              py="1.75rem"
+            <InputModal
+              type="text"
+              place="categoria"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              changeFunction={setCategory}
             />
+
             <Flex gap="1rem">
-              <Button
-                py="1.75rem"
-                w="100%"
-                gap=".5rem"
-                border="1px solid transparent"
-                onClick={() => setType("deposit")}
-                _hover={{ bg: "transparent" }}
-                _active={{ bg: "transparent" }}
-                borderColor={type === "deposit" ? "transparent" : "#bac9d8a9"}
-                bg={type === "deposit" ? "#12a45429" : "transparent"}
-              >
-                <Image src="/Income.png" w="1.5rem" h="1.5rem" />
-                Entrada
-              </Button>
-              <Button
-                py="1.75rem"
-                w="100%"
-                gap=".5rem"
-                border="1px solid transparent"
-                onClick={() => setType("withdraw")}
-                _hover={{ bg: "transparent" }}
-                _active={{ bg: "transparent" }}
-                borderColor={type === "withdraw" ? "transparent" : "#bac9d8a9"}
-                bg={type === "withdraw" ? "#e62e4d28" : "transparent"}
-              >
-                <Image src="/Outcome.png" w="1.5rem" h="1.5rem" />
-                Saída
-              </Button>
+              <SelectButton
+                src="/Income.png"
+                bg="#12a45429"
+                clickFunction={() => setType("deposit")}
+                option={"deposit"}
+              />
+              <SelectButton
+                src="/Outcome.png"
+                bg="#e62e4d28"
+                clickFunction={() => setType("withdraw")}
+                option={"withdraw"}
+              />
             </Flex>
+
             <Button
               py="1.75rem"
               mt="1rem"
@@ -104,7 +88,7 @@ export function TransactionModal() {
               transition="filter .2s"
               _hover={{ filter: "brightness(0.9)" }}
               _active={{ filter: "brightness(0.9)" }}
-              onClick={() => handleAddTransaction()}
+              onClick={() => crateTransaction()}
             >
               Cadastrar
             </Button>

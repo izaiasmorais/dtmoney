@@ -17,7 +17,7 @@ export function SummaryBox({ title, bg, url, value, color }: SummaryBoxProps) {
       py="1.5rem"
       px="2rem"
       minW="280px"
-      borderRadius=".25rem"
+      borderRadius=".5rem"
     >
       <Flex w="100%" justify="space-between" mb={["1rem", ".7rem"]}>
         <Text>{title}</Text>
