@@ -1,5 +1,5 @@
 <h1 align='center'>
-   💵 EZMoney
+   💵 DTMoney
 </h1>
 
 <p align="center">Uma aplicação para gerenciar suas finanças.</p>
@@ -29,7 +29,7 @@ O site é inicialmente feito na trilha ReactJS da Rocketseat. Criei ele para uso
 ## 💻 Clonando projeto
 
 ```bash
-$ git clone https://github.com/IzaiasMorais/ezmoney.git && cd ezmoney
+$ git clone https://github.com/IzaiasMorais/dtmoney.git && cd dtmoney
 ```
 
 ```bash
